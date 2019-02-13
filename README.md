@@ -8,4 +8,11 @@ OR
 2. java -jar target/internship-spring-boot-live-1.0-SNAPSHOT.jar
 </pre>
 
+<h2>profiles</h2>
+<pre>
+define in application.properties
+OR
+programatically by SpringApplication.setAdditionalProfiles("dev");
+</pre>
+
 
