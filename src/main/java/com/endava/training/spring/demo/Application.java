@@ -1,4 +1,4 @@
-package com.endava.training.spring.demo.hello;
+package com.endava.training.spring.demo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,13 +9,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.endava.training.spring.demo.hello"})
-public class HelloWorld {
+@ComponentScan(basePackages = {"com.endava.training.spring.demo"})
+public class Application {
 
-    private static final Logger LOG = LoggerFactory.getLogger(HelloWorld.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Application.class);
+
 
     public static void main(String[] args) {
-        SpringApplication.run(HelloWorld.class);
+        SpringApplication.run(Application.class);
     }
 
     @Bean
