@@ -13,6 +13,11 @@ OR
 define in application.properties
 OR
 programatically by SpringApplication.setAdditionalProfiles("dev");
+
+run with: mvn spring-boot:run -Pprod
+OR
+1. mvn clean install -Pprod
+2. java -jar target/internship-spring-boot-live-1.0-SNAPSHOT.jar
 </pre>
 
 
