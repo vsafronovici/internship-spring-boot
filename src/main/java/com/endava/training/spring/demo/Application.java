@@ -1,16 +1,17 @@
 package com.endava.training.spring.demo;
 
+import com.endava.training.spring.demo.inheritance.A;
+import com.endava.training.spring.demo.inheritance.B;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
-//@ComponentScan(basePackages = {"com.endava.training.spring.demo"})
 @ImportResource("classpath:spring-config.xml")
 
 public class Application {
@@ -22,10 +23,21 @@ public class Application {
         SpringApplication.run(Application.class);
     }
 
+    @Autowired
+    A ia;
+
+    @Autowired
+    B b;
+
+    @Autowired
+    B b2;
+
     @Bean
     public CommandLineRunner hello() {
         return (args) -> {
-            LOG.info("==== Hello world !!!");
+            System.out.println("==== ia:" + ia);
+            System.out.println("==== b:" + b);
+            System.out.println("==== b2:" + b2);
         };
     }
 
