@@ -1,0 +1,53 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:cache="http://www.springframework.org/schema/cache"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+	<context:component-scan base-package="com.endava.training.spring.demo" />
+
+
+	<!-- Loading properties -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" p:location="classpath:main.properties" />
+
+
+
+	<bean id="addr1" class="com.endava.training.spring.demo.entity.Address" />
+	<bean id="p1" class="com.endava.training.spring.demo.entity.Person">
+		<constructor-arg name="name" value="name1" />
+		<constructor-arg name="address" ref="addr1" />
+	</bean>
+
+	<bean id="addr2" class="com.endava.training.spring.demo.entity.Address">
+		<constructor-arg name="country" value="country2" />
+		<constructor-arg name="state" value="state2" />
+		<constructor-arg name="city" value="city2" />
+		<constructor-arg name="zip" value="${default.zip}" />
+	</bean>
+	<bean id="p2" class="com.endava.training.spring.demo.entity.Person" init-method="init" p:lastname="lastname2">
+		<constructor-arg name="name" value="name2" />
+		<constructor-arg name="address" ref="addr2" />
+		<property name="birth">
+			<bean class="java.util.Date" />
+		</property>
+	</bean>
+
+	<bean id="p3" class="com.endava.training.spring.demo.entity.Person" init-method="init">
+		<constructor-arg name="name" value="name3" />
+		<constructor-arg name="address" value="#{p2.address}"  />
+		<property name="lastname" value="#{p2.lastname}" />
+		<property name="children">
+			<list>
+				<ref bean="p1" />
+				<ref bean="p2" />
+			</list>
+		</property>
+	</bean>
+
+
+
+</beans>
