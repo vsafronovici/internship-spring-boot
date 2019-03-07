@@ -1,7 +1,9 @@
 package com.endava.training.spring.demo;
 
+import com.endava.training.spring.demo.service.MyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,10 +21,15 @@ public class Application {
         SpringApplication.run(Application.class);
     }
 
+    @Autowired
+    private MyService myService;
+
     @Bean
     public CommandLineRunner hello() {
         return (args) -> {
-            LOG.info("==== Hello world !!!");
+            myService.get(1);
+            myService.save(12);
+            //myService.save(0);
         };
     }
 
