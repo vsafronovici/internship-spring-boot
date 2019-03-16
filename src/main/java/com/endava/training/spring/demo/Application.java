@@ -27,13 +27,12 @@ public class Application {
     private ApplicationContext applicationContext;
 
 
-    /*@Bean
+    @Bean
     public CommandLineRunner hello() {
         return (args) -> {
             LOG.info("======================================= Hello world !!! ==================");
             System.out.println(applicationContext.getBeanDefinitionNames());
         };
-    }*/
-
+    }
 
 }
