@@ -18,7 +18,7 @@ public class TopField {
     @Autowired
     private Field1 field1;
 
-    private Field2 field2;
+    private final Field2 field2;
     private Field3 field3;
 
 
@@ -44,16 +44,8 @@ public class TopField {
         return field1;
     }
 
-    public void setField1(Field1 field1) {
-        this.field1 = field1;
-    }
-
     public Field2 getField2() {
         return field2;
-    }
-
-    public void setField2(Field2 field2) {
-        this.field2 = field2;
     }
 
     public Field3 getField3() {

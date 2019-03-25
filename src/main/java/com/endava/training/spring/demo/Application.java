@@ -71,10 +71,10 @@ public class Application {
             @Value("${say.hi}")
             private String name;
 
-            @Override
+            /*@Override
             public String getName() {
-                return "myField5";
-            }
+                return "myField52";
+            }*/
         };
     }
 

@@ -8,6 +8,8 @@ public class B2 {
 
     private A2 a2;
 
+//    public B2() {}
+
     public B2(@Autowired A2 a2) {
         System.out.println("== constructor " + this.getClass().getSimpleName());
         this.a2 = a2;
